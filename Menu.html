@@ -1,0 +1,592 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kakapo - Biologia</title>
+<style>
+    ::-webkit-scrollbar {
+	width: 7px;
+	background: #081525;
+	}
+
+::-webkit-scrollbar-track {
+	background: #21212100;
+	}
+
+::-webkit-scrollbar-thumb {
+	background: #0094ff;
+	border-radius: 6px;
+	}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #0094ff;
+	}
+
+body { /* css inline é vidaaa */
+	background-image: linear-gradient( 180deg, #081525, #010711);
+	margin: 0;
+	min-height: 100vh;
+	}
+
+</style>
+</head>
+<body>
+    <-- Top Bar kk ->
+<div style="z-index: 1; position: fixed; top: 0; left: 0; width: 100%; height: 7%; background-color: #07121f; border-bottom: 1px solid #002a47;">
+
+</div>
+    <-- Barra lateral ->
+<div style="position: fixed; bottom: 0; left: 0; width: 16%; min-width: 250px; height: 93%; background-color: #081525; border-right: 1px solid #002a47; display: flex; flex-direction: column;">
+	<-- Botao ->
+	<div style="position: absolute; top: 1; background-color: #0b1c31; width: 100%; height: 50px;">
+		<div style="position: absolute; left: 0; background-color: #0c4183; width: 15px; height: 100%"></div>
+	</div>
+	<-- Botao ->
+	<div style="position: absolute; margin-top: 51px; background-color: #0b1c31; width: 100%; height: 50px;">
+		<div style="position: absolute; left: 0; background-color: #0c4183; width: 15px; height: 100%"></div>
+	</div>
+	<-- Botao ->
+	<div style="position: absolute; margin-top: 102px; background-color: #0b1c31; width: 100%; height: 50px;">
+		<div style="position: absolute; left: 0; background-color: #0c4183; width: 15px; height: 100%"></div>
+	</div>
+	<-- Botao ->
+	<div style="position: absolute; margin-top: 153px; background-color: #0b1c31; width: 100%; height: 50px;">
+		<div style="position: absolute; left: 0; background-color: #0c4183; width: 15px; height: 100%"></div>
+	</div>
+	<-- Botao ->
+	<div style="position: absolute; margin-top: 204px; background-color: #0b1c31; width: 100%; height: 50px;">
+		<div style="position: absolute; left: 0; background-color: #0c4183; width: 15px; height: 100%"></div>
+	</div>
+</div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+<meta charset="UTF-8">
+	<title> Kakapo - Biologia
+	</title>
+	<link rel="icon" type="image/png" href="WXLS1.png">
+		<style type="text/css">
+
+::-webkit-scrollbar {
+	width: 7px;
+	background: #152114;
+}
+ 
+::-webkit-scrollbar-track {
+	background: #21212100;
+}
+ 
+::-webkit-scrollbar-thumb {
+	background: #648e13;
+	border-radius: 6px;
+}
+ 
+::-webkit-scrollbar-thumb:hover {
+	background: #8bc53f;
+}
+ 
+body { /* css inline é vidaaa */
+	background-color: #152114;
+	margin: 0;
+	min-height: 100vh;
+	color: #ffffff;
+	font-family: Arial, sans-serif;
+}
+ 
+a {
+	color: inherit;
+	text-decoration: none;
+}
+ 
+/* Top Bar */
+.topbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 7%;
+	background-color: #1c281b;
+	border-bottom: 1px solid #2a3d24;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 20px;
+	box-sizing: border-box;
+}
+
+.topbar-nav {
+	display: flex;
+	gap: 25px;
+}
+
+.topbar-nav a {
+	font-size: 13px;
+	color: #9fc46a;
+}
+
+.topbar-nav a:hover {
+	color: #ffffff;
+}
+ 
+/* Barra lateral */
+.barralateral {
+	position: fixed;
+	top: 7%;
+	left: 0;
+	width: max(16%, 250px);
+	height: 93%;
+	background-color: #152114;
+	border-right: 1px solid #2a3d24;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	z-index: 90;
+	
+}
+
+.barralateral-titulo {
+	padding: 15px 25px 8px;
+	font-size: 12px;
+	color: #9fc46a;
+}
+ 
+/* Botao */
+.barralateral-btn {
+	background-color: #1b2b18;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	padding-left: 25px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #0e150c;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+ 
+.barralateral-btn:hover {
+	background-color: #24371f;
+}
+ 
+.barralateral-btn.active {
+	background-color: #263c20;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #2a3d24;
+}
+
+.barralateral-info {
+	margin-top: auto;
+	padding: 15px 25px;
+	font-size: 12px;
+	color: #9fc46a;
+	border-top: 1px solid #2a3d24;
+}
+ 
+
+.content {
+	margin-left: max(16%, 250px);
+	padding-top: calc(7vh + 30px);
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+/* Arvore filogenetica */
+.arvore {
+	margin-top: 25px;
+	overflow-x: auto;
+	padding-bottom: 20px;
+}
+
+.arvore ul {
+	padding: 40px 0 0 0;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
+.arvore li {
+	list-style-type: none;
+	position: relative;
+	padding: 40px 20px 0 20px;
+	text-align: center;
+}
+
+.arvore li::before,
+.arvore li::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 50%;
+	border-top: 2px solid #8bc53f;
+	width: 50%;
+	height: 40px;
+}
+
+.arvore li::after {
+	right: auto;
+	left: 50%;
+	border-left: 2px solid #8bc53f;
+}
+
+.arvore li:only-child::before,
+.arvore li:only-child::after {
+	display: none;
+}
+
+.arvore li:only-child {
+	padding-top: 0;
+}
+
+.arvore li:first-child::before,
+.arvore li:last-child::after {
+	border: 0 none;
+}
+
+.arvore li:last-child::before {
+	border-right: 2px solid #8bc53f;
+	border-radius: 0 6px 0 0;
+}
+
+.arvore li:first-child::after {
+	border-radius: 6px 0 0 0;
+}
+
+.arvore ul ul::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-left: 2px solid #8bc53f;
+	width: 0;
+	height: 40px;
+}
+
+.arvore-caixa {
+	position: relative;
+	display: inline-block;
+	min-width: 210px;
+	box-sizing: border-box;
+	text-align: center;
+	white-space: nowrap;
+	padding: 22px 36px;
+	border-radius: 14px;
+	border: 3px solid #0a1408;
+	background-image: linear-gradient(100deg, #69a31d 0%, #6fae1f 100%);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+	color: #ffffff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+.arvore-caixa::before {
+	content: '';
+	position: absolute;
+	top: -14px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-top: 12px solid #8bc53f;
+}
+
+.arvore-caixa.raiz::before {
+	display: none;
+}
+
+.arvore-caixa small {
+	display: block;
+	font-weight: normal;
+	text-transform: none;
+	font-size: 13px;
+	color: #dcefc0;
+	margin-top: 5px;
+}
+
+a.arvore-caixa {
+	transition: background-image 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+}
+
+a.arvore-caixa:hover {
+	background-image: linear-gradient(100deg, #2c4a14 0%, #8bc53f 100%);
+	box-shadow: 0 0 10px rgba(81, 121, 30, 0.45);
+}
+
+.arvore-caixa.terminal {
+	white-space: normal;
+	max-width: 230px;
+	font-size: 15px;
+}
+
+.arvore-caixa.escuro {
+	background-image: linear-gradient(100deg, #233a10 0%, #20360f 100%);
+	border: 3px solid #36520f;
+}
+
+.arvore-caixa.escuro-leve {
+	background-image: linear-gradient(100deg, #1a2c0d 0%, #5a8a19 100%);
+	border: 3px solid #36520f;
+}
+
+.arvore-fim-linha {
+	width: 2px;
+	height: 16px;
+	background-color: #8bc53f;
+	margin: 0 auto;
+}
+
+.arvore-fim {
+	width: 12px;
+	height: 12px;
+	margin: 0 auto;
+	border: 2px solid #8bc53f;
+	transform: rotate(45deg);
+}
+
+
+.kakapo {
+	position: relative;
+	overflow: hidden;
+	margin: -30px -30px 0 -30px;
+	
+}
+
+.kakapo-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.kakapo-overlay {
+	position: absolute;
+	left: 6%;
+	bottom: 8%;
+	max-width: 380px;
+	z-index: 2;
+}
+
+.kakapo-label {
+	color: #8bc53f;
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 1px;
+	font-weight: bold;
+	margin: 0 0 10px;
+}
+
+.kakapo-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	background-color: #648e13;
+	color: #ffffff;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 14px;
+	padding: 14px 22px;
+	border-radius: 30px;
+	transition: background-color 0.2s;
+}
+
+.kakapo-btn:hover {
+	background-color: #7cad1c;
+}
+
+.kakapo-btn-seta {
+	background: rgba(255, 255, 255, 0.25);
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+}
+
+.kakapo-text {
+	margin-top: 18px;
+	font-size: 12px;
+	line-height: 1.6;
+	color: #648e13;
+}
+
+h2, h2 {
+	color: #648e13;
+}
+
+#kakapo > h2, #kakapo > h2, #kakapo > p, #kakapo > ul,
+#arvore-filogenetica > h2, #arvore-filogenetica > p,
+#fontes > h2, #fontes > p {
+	margin-left: calc(6% - 26.4px);
+}
+
+#kakapo > p, #arvore-filogenetica > p {
+	font-size: 17px;
+}
+
+#fontes {
+	padding-bottom: 100px;
+}
+
+#fontes h2 {
+	font-size: 17px;
+	color: #9fc46a;
+}
+
+#fontes p {
+	font-size: 12px;
+	line-height: 1.8;
+	color: #6c8a56;
+}
+
+#fontes p a {
+	color: #7a9a63;
+}
+
+#fontes p a:hover {
+	color: #9fc46a;
+}
+ 
+</style>
+</head>
+<body>
+ 
+	<div class="topbar">
+		<a href="index.html" style="font-size: 20px; color: #ffffff;">Estudo Filogenético do Kakapo</a>
+
+		<div class="topbar-nav">
+			<a href="#inicio">Início</a>
+			<a href="#kakapo">Kakapo</a>
+			<a href="#arvore-filogenetica">Árvore</a>
+			<a href="#fontes">Fontes</a>
+		</div>
+	</div>
+ 
+	<div class="barralateral">
+		<p class="barralateral-titulo">Cladograma</p>
+
+		<a class="barralateral-btn" href="psittaciformes.html" target="_blank">Psittaciformes</a>
+		<a class="barralateral-btn" href="strigopoidea.html" target="_blank">Strigopoidea</a>
+		<a class="barralateral-btn" href="strigopidae.html" target="_blank">Strigopidae</a>
+		<a class="barralateral-btn" href="strigopshabroptilus.html" target="_blank">strigopshabroptilus</a>
+
+		<p class="barralateral-info"> Site Goat de Biologia<br><br> - &copy; Alguns direitos reservados</p>
+	</div>
+ 
+	<div class="content">
+		<div id="inicio" class="kakapo">
+			<img src="Kakapos.png" alt="Filogenia do Kakapo" class="kakapo-img">
+			<h1 class="sr-only">Kakapo</h1>
+			<div class="kakapo-overlay">
+				<p class="kakapo-label">Árvore Filogenética</p>
+				<a href="#arvore-filogenetica" class="kakapo-btn">Avançar</a>
+				<p class="kakapo-text">&emsp;&emsp;&emsp;Este site apresenta um estudo filogenético do Kakapo (Strigops Habroptilus), um papagaio nativo da Nova Zelândia com características evolutivas incomuns: é noturno, terrestre e incapaz de voar. Navegue pelo menu lateral para conhecer sua classificação taxonômica (Psittaciformes, Strigopoidea, Strigopidae) e seus parentes vivos mais próximos, o Kea e o Kākā, ambos da família Nestoridae.</p>
+			</div>
+		</div>
+
+		<div id="kakapo">
+			<h2>Kakapo</h2>
+			<p>&emsp;&emsp;&emsp;O Kakapo (Strigops Habroptilus) é o único membro vivo da família Strigopidae e é considerado o papagaio mais pesado do mundo, podendo pesar entre 2 e 4 kg. Endêmico da Nova Zelândia, evoluiu em um ambiente isolado e livre de mamíferos predadores terrestres, o que levou à perda da capacidade de voo, a hábitos noturnos e a uma vida predominantemente terrestre. Seu rosto possui um disco facial de penas que lembra o de uma coruja. Para mais detalhes sobre sua biologia, reprodução e conservação, acesse a página <a href="kakapo.html" target="_blank">Kakapo</a> no menu lateral.</p>
+
+			<h2>Classificação Taxonômica</h2>
+			<ul>
+				<li><strong>Ordem:</strong> Psittaciformes (Papagaios, araras e cacatuas)</li>
+				<li><strong>Superfamília:</strong> Strigopoidea (Papagaios da Nova Zelândia)</li>
+				<li><strong>Família:</strong> Strigopidae</li>
+				<li><strong>Gênero:</strong> Strigops</li>
+				<li><strong>Espécie:</strong> Strigops Habroptilus</li>
+			</ul>
+
+			<h2>História Ancestral e Evolutiva</h2>
+			<p>&emsp;&emsp;&emsp;A linhagem do Kakapo representa uma das divergências mais antigas entre as aves modernas. O ancestral comum da superfamília Strigopoidea isolou-se geograficamente quando o fragmento de terra que hoje é a Nova Zelândia separou-se do antigo supercontinente de Gondwana, há aproximadamente 80 a 82 milhões de anos.</p>
+			<p>&emsp;&emsp;&emsp;Estima-se que há cerca de 70 milhões de anos, a família Strigopidae (à qual o Kakapo pertence) divergiu de seus irmãos taxonômicos, os papagaios da família Nestoridae. Evoluindo em um ambiente insular isolado e completamente livre de mamíferos predadores terrestres, o Kakapo passou por drásticas adaptações fisiológicas: tornou-se noturno, extremamente pesado e perdeu a capacidade de voo, um clássico exemplo de evolução em ambientes insulares pacíficos.</p>
+
+			<h2>Parentes Vivos Mais Próximos</h2>
+			<p>&emsp;&emsp;&emsp;O Kakapo é o único membro sobrevivente de sua família (Strigopidae). Seus parentes vivos mais próximos integram a família irmã taxonômica Nestoridae, que também é endêmica da Nova Zelândia. Ela é composta atualmente por apenas duas espécies:</p>
+			<ul>
+				<li><strong>Kea (Nestor notabilis):</strong> O notório papagaio alpino habitante das montanhas da Ilha do Sul, conhecido por sua notável inteligência e comportamento curioso.</li>
+				<li><strong>Kākā (Nestor meridionalis):</strong> Papagaio florestal nativo que habita as florestas maduras de ambas as principais ilhas neozelandesas, possuindo hábitos mais tradicionalmente arborícolas.</li>
+			</ul>
+		</div>
+		
+
+		<div id="arvore-filogenetica">
+			<h2>Árvore Filogenética</h2>
+			<p>&emsp;&emsp;&emsp;O esquema abaixo resume a divergência dos Psittaciformes até o Kakapo. Clique em uma caixa para abrir a página correspondente.</p>
+
+			<div class="arvore">
+				<ul>
+					<li>
+						<a class="arvore-caixa raiz" href="psittaciformes.html" target="_blank">Psittaciformes</a>
+						<ul>
+							<li>
+								<span class="arvore-caixa terminal escuro">Demais Psittaciformes<br>(Cacatuoidea e Psittacoidea)</span>
+								<div class="arvore-fim-linha"></div>
+								<div class="arvore-fim"></div>
+							</li>
+							<li>
+								<a class="arvore-caixa" href="strigopoidea.html" target="_blank">Strigopoidea</a>
+								<ul>
+									<li>
+										<span class="arvore-caixa terminal escuro">Nestoridae<br>(Kea e Kākā)</span>
+										<div class="arvore-fim-linha"></div>
+										<div class="arvore-fim"></div>
+									</li>
+									<li>
+										<a class="arvore-caixa" href="strigopidae.html" target="_blank">Strigopidae</a>
+										<ul>
+											<li>
+												<a class="arvore-caixa escuro-leve" href="strigopshabroptilus.html" target="_blank">Kakapo<small>Strigops Habroptilus</small></a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="fontes">
+			<h2>Fontes</h2>
+			<p>
+				&emsp;&emsp;&emsp;<a href="https://en.wikipedia.org/wiki/New_Zealand_parrot" target="_blank">Wikipedia — New Zealand parrot</a><br>
+				<a href="https://pt.wikipedia.org/wiki/C%C3%A1capo" target="_blank">Wikipédia — Cacapo</a><br>
+				<a href="https://pt.wikipedia.org/wiki/Strigopidae" target="_blank">Wikipédia — Strigopidae</a><br>
+				<a href="https://birdsoftheworld.org/bow/species/strigo1/cur/introduction?lang=pt_BR" target="_blank">Birds of the World — Strigops Habroptilus</a><br>
+				<a href="https://www.wikiaves.com.br/wiki/psittaciformes" target="_blank">WikiAves — Psittaciformes</a><br>
+				<a href="https://parrotfarm.com.br/blog/origem-dos-psitacideos" target="_blank">Parrot Farm — Origem dos Psitacídeos</a><br>
+				<a href="https://www.britannica.com/animal/psittaciform/Evolution-and-classification" target="_blank">Britannica — Psittaciform: Evolution and Classification</a><br>
+				<a href="https://www.revistauru.com/post/as-aves-e-seus-p%C3%A9s-classifica%C3%A7%C3%A3o-quanto-%C3%A0-disposi%C3%A7%C3%A3o-de-dedos" target="_blank">Revista Uru — As aves e seus pés: classificação quanto à disposição de dedos</a><br>
+				<a href="https://www.inaturalist.org/taxa/200965-Strigopidae" target="_blank">iNaturalist — Strigopidae</a><br>
+				<a href="https://nsojournals.onlinelibrary.wiley.com/doi/abs/10.1111/j.1600-048X.2013.00200.x" target="_blank">Nordic Society Oikos (Wiley) — The timing of diversification within the most divergent parrot clade</a><br>
+				<a href="https://www.researchgate.net/publication/259551767_The_timing_of_diversification_within_the_most_divergent_parrot_clade" target="_blank">ResearchGate — The timing of diversification within the most divergent parrot clade</a><br>
+				<a href="https://a-z-animals.com/animals/kakapo/" target="_blank">A-Z Animals — Kakapo</a>
+			</p>
+		</div>
+	</div>
+ 
+</body>
+</html>
